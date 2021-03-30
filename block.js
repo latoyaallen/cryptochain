@@ -15,6 +15,9 @@ const block1 = new Block(
     data: 'some-data'
   }
 );
+
+module.exports = Block;
+
 console.log('block1', block1);
 
 
