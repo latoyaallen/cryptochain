@@ -1,5 +1,5 @@
 # cryptochain
 
-Sanity check: log an instance of the node class
+Run the tests
 
-`node block.js`
+`npm run test`

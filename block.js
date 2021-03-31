@@ -1,3 +1,5 @@
+const { GENESIS_DATA } = require('./config');
+
 class Block {
   constructor({timestamp, lastHash, hash, data}) {
     this.timestamp = timestamp;
@@ -5,21 +7,19 @@ class Block {
     this.hash = hash;
     this.data = data;
   }
+
+  // static methods or properties are called on the class, but
+  // not on any instance of the class
+  // this allows us to implement the Factory Pattern
+  // the genesis method creates a new instance of the Block class
+  //
+  static genesis() {
+    // this will refer to the Block class
+    return new this(GENESIS_DATA);
+  }
 }
 
-const block1 = new Block(
-  {
-    timestamp: '01/01/01',
-    lastHash: 'some-last-hash',
-    hash: 'some-new-hash',
-    data: 'some-data'
-  }
-);
-
 module.exports = Block;
-
-console.log('block1', block1);
-
 
 /* A Block has 4 attrubutes:
  *
