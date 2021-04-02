@@ -17,6 +17,15 @@ class Block {
     // this will refer to the Block class
     return new this(GENESIS_DATA);
   }
+
+  static mineBlock({ lastBlock, data}) {
+    // this will refer to the Block class
+    return new this({
+      timestamp: Date.now(),
+      lastHash: lastBlock.hash,
+      data
+    });
+  }
 }
 
 module.exports = Block;
@@ -35,6 +44,19 @@ module.exports = Block;
  *
  *  * Hash for the new block
  *    * generated from its own data
+ *
+ *
+ * A Genesis block in the first block in a Blockchain
+ *
+ *
+ * A Mine block is new block on the chain that has some data, and points
+ * back to the block before it.  It does some computational work to let the
+ * chain grow at a reasonable pace.  This computational work is called mining.
+ *
+ * A Genesis block can never be a Mine block.  A Mine block can never be a Genesis block.
+ *
+ * The first Mine block will always point back to the Genesis block of a blockchain.
+ *
  *
  *
  */
