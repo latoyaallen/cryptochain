@@ -1,4 +1,5 @@
 const Block = require('./block');
+const cryptoHash = require('./cryptoHash');
 const { GENESIS_DATA } = require('./config');
 
 describe('Block', () => {
@@ -53,5 +54,10 @@ describe('Block', () => {
     it('sets a `timestamp` ', () => {
       expect(minedBlock.timestamp).not.toEqual(undefined);
     });
+
+    // moving forward we're using the should syntax like Thoughtworks does
+    it('should create a SHA-256 hash based on the inputs'), () => {
+      expect(minedBlock.hash).toEqual(cryptoHash(minedBlock.timestamp, lastBlock.hash, data));
+    }
   });
 });
