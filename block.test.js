@@ -56,8 +56,34 @@ describe('Block', () => {
     });
 
     // moving forward we're using the should syntax like Thoughtworks does
-    it('should create a SHA-256 hash based on the inputs'), () => {
+    it('should create a SHA-256 hash based on the inputs', () => {
+      // the mined block is the current block we've just mined
+      // the last block, in this case, is the genesis block.
+      // Most of the time it won't be the genesis block
       expect(minedBlock.hash).toEqual(cryptoHash(minedBlock.timestamp, lastBlock.hash, data));
-    }
+    });
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

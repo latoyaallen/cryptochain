@@ -11,6 +11,7 @@ const cryptoHash = (...inputs) => {
   const hash = crypto.createHash('sha256');
 
   // update takes a string, so we need to convert the inputs array to a string
+  // use .sort() to sort them in alphabetical
   hash.update(inputs.sort().join(' '));
 
   // digest is a cryptography term.  We want to digest (get the result) of the hash
